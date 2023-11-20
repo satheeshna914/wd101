@@ -1,11 +1,10 @@
 let registerform=document.getElementById("register-form");
+
 const getentries = () => {
    let entries = localStorage.getItem("register-entries");
-   if (entries) 
-   {
+   if (entries) {
     entries=JSON.parse(entries);
-   } else 
-   {
+   } else {
     entries=[];
    }
    return entries;
@@ -21,16 +20,16 @@ const entriestable=entries.map((entry) => {
     const dobcell = `<td class='border px-4 py-2'>${entry.dob}</td>` ;
     const accepttermscell = `<td class='border px-4 py-2'>${entry.acceptedterms}</td>`;
 
-    const row = `<tr style="color:black; background-color:rgb(240, 240, 240);">${namecell} ${emailcell} ${passwordcell} ${dobcell} ${accepttermscell}</tr>`; 
+    const row = `<tr style="color:black; background-color:grey;">${namecell} ${emailcell} ${passwordcell} ${dobcell} ${accepttermscell}</tr>`; 
     return row;
     }).join("\n");
 
-    const table = `<table class="table-auto w-full"><tr style="color:blur; background-color:lightblue;">
-    <th class="px-4 py-5">NAME</th> 
-    <th class="px-4 py-5">EMAIL</th> 
-    <th class="px-4 py-5">PASSWORD</th> 
-    <th class="px-4 py-5">DOB</th> 
-    <th class="px-4 py-5">ACCEPTED TERMS</th> 
+    const table = `<table class="table-auto w-full"><tr style="color:blur; background-color:blue;">
+    <th class="px-4 py-5">Name</th> 
+    <th class="px-4 py-5">Email</th> 
+    <th class="px-4 py-5">Password</th> 
+    <th class="px-4 py-5">Dob</th> 
+    <th class="px-4 py-5">Accepted terms?</th> 
 </tr>${entriestable} </table>`;
 let details = document.getElementById("register-entries");
 details.innerHTML = table;
